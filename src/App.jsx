@@ -1,5 +1,7 @@
 import { TodoProvider } from "./context/TodoContext";
 import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
+import "./App.css";
 
 function App() {
   return (
@@ -18,9 +20,7 @@ function App() {
             <button>Completed</button>
           </div>
 
-          <div className="todo-list">
-            <p>No tasks yet</p>
-          </div>
+          <TodoList />
         </div>
       </div>
     </TodoProvider>
