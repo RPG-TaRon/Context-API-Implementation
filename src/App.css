@@ -44,3 +44,15 @@ button {
   border-top: 1px solid #ccc;
   padding-top: 15px;
 }
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
