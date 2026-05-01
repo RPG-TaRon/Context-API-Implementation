@@ -1,7 +1,7 @@
 import { useTodos } from "../context/TodoContext";
 
 function TodoList() {
-  const { todos } = useTodos();
+  const { todos, toggleTodo } = useTodos();
 
   if (todos.length === 0) {
     return (
@@ -15,7 +15,15 @@ function TodoList() {
     <div className="todo-list">
       {todos.map((todo) => (
         <div className="todo-item" key={todo.id}>
-          <span>{todo.text}</span>
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            onChange={() => toggleTodo(todo.id)}
+          />
+
+          <span className={todo.completed ? "completed" : ""}>
+            {todo.text}
+          </span>
         </div>
       ))}
     </div>
