@@ -1,5 +1,5 @@
 import { TodoProvider } from "./context/TodoContext";
-import "./App.css";
+import TodoInput from "./components/TodoInput";
 
 function App() {
   return (
@@ -10,10 +10,7 @@ function App() {
 
           <button>Toggle Theme</button>
 
-          <div className="input-row">
-            <input type="text" placeholder="Enter a task..." />
-            <button>Add</button>
-          </div>
+          <TodoInput />
 
           <div className="filter-row">
             <button>All</button>
