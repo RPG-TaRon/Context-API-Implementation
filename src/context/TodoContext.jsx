@@ -16,7 +16,7 @@ function TodoProvider({ children }) {
   }
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo }}> // passing the todos state and addTodo function as the value of the context provider
+    <TodoContext.Provider value={{ todos, addTodo }}> 
       {children}
     </TodoContext.Provider>
   );
