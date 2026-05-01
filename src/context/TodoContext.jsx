@@ -2,30 +2,28 @@ import { createContext, useContext, useState } from "react";
 
 const TodoContext = createContext();
 
-export function TodoProvider({ children }) {
+function TodoProvider({ children }) {
   const [todos, setTodos] = useState([]);
 
-function addTodo(text) {
+  function addTodo(text) {
     const newTodo = {
-        id: Date.now(),
-        text: text,
-        completed: false,
+      id: Date.now(),
+      text: text,
+      completed: false,
     };
-};
 
-setTodos((prev) => {
-  const updated = prev.slice();
-  updated.push(newTodo);
-  return updated;
-});
+    setTodos([...todos, newTodo]); // creating a new array with the new todo added to the end of the existing todos array
+  }
 
-return (
-    <TodoContext.Provider value={{ todos, addTodo }}>
-        {children}
+  return (
+    <TodoContext.Provider value={{ todos, addTodo }}> // passing the todos state and addTodo function as the value of the context provider
+      {children}
     </TodoContext.Provider>
-);
+  );
 }
 
-export function useTodo() {
+function useTodos() {
   return useContext(TodoContext);
 }
+
+export { TodoProvider, useTodos };
