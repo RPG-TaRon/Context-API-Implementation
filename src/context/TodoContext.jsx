@@ -31,15 +31,36 @@ function TodoProvider({ children }) {
   }
 
   function deleteTodo(id) {
-    const updatedTodos = todos.filter((todo) => todo.id !== id); 
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
     // Keep every todo except the one with matching id
 
     setTodos(updatedTodos); // Update state after removing todo
   }
 
+  function editTodo(id, newText) {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo, // Keep the existing properties
+          text: newText, // Replace old text with new text
+        };
+      }
+
+      return todo; // Return unchanged todo if id does not match
+    });
+
+    setTodos(updatedTodos); // Update state with edited todo list
+  }
+
   return ( // Provide the todos and functions to the context consumers
     <TodoContext.Provider
-      value={{ todos, addTodo, toggleTodo, deleteTodo }}
+      value={{
+        todos,
+        addTodo,
+        toggleTodo,
+        deleteTodo,
+        editTodo,
+      }}
     >
       {children}
     </TodoContext.Provider>
