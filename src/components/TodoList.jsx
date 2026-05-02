@@ -10,14 +10,14 @@ function TodoList() {
       </div>
     );
   }
-
+// Function to handle editing a todo item
   function handleEdit(todo) {
     const newText = prompt("Edit your task:", todo.text);
 
-    if (newText === null) return;
-    if (newText.trim() === "") return;
+    if (newText === null) return; // Cancelled prompt
+    if (newText.trim() === "") return; // Don't allow empty text
 
-    editTodo(todo.id, newText);
+    editTodo(todo.id, newText); // Call editTodo function from context with the id and new text
   }
 
   return (

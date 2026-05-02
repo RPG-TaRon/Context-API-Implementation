@@ -1,8 +1,8 @@
 import { TodoProvider } from "./context/TodoContext";
 import { FilterProvider } from "./context/FilterContext";
-
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import FilterButtons from "./components/FilterButtons";
 
 function App() {
   return (
@@ -16,11 +16,7 @@ function App() {
 
             <TodoInput />
 
-            <div className="filter-row">
-              <button>All</button>
-              <button>Active</button>
-              <button>Completed</button>
-            </div>
+            <FilterButtons />
 
             <TodoList />
           </div>
