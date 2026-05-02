@@ -1,7 +1,7 @@
 import { useTodos } from "../context/TodoContext";
 
 function TodoList() {
-  const { todos, toggleTodo } = useTodos();
+  const { todos, toggleTodo, deleteTodo } = useTodos();
 
   if (todos.length === 0) {
     return (
@@ -24,6 +24,8 @@ function TodoList() {
           <span className={todo.completed ? "completed" : ""}>
             {todo.text}
           </span>
+
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
         </div>
       ))}
     </div>
