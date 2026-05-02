@@ -20,25 +20,34 @@ function TodoProvider({ children }) {
       if (todo.id === id) {
         return {
           ...todo, // Keep the existing properties
-          completed: !todo.completed,
+          completed: !todo.completed, // Switch completed true/false
         };
       }
 
-      return todo;
+      return todo; // Return unchanged todo if id does not match
     });
 
-    setTodos(updatedTodos);
+    setTodos(updatedTodos); // Update state with modified list
+  }
+
+  function deleteTodo(id) {
+    const updatedTodos = todos.filter((todo) => todo.id !== id); 
+    // Keep every todo except the one with matching id
+
+    setTodos(updatedTodos); // Update state after removing todo
   }
 
   return ( // Provide the todos and functions to the context consumers
-    <TodoContext.Provider value={{ todos, addTodo, toggleTodo }}> 
+    <TodoContext.Provider
+      value={{ todos, addTodo, toggleTodo, deleteTodo }}
+    >
       {children}
     </TodoContext.Provider>
   );
 }
 
 function useTodos() {
-  return useContext(TodoContext);
+  return useContext(TodoContext); // Access todo context values anywhere
 }
 
 export { TodoProvider, useTodos };
