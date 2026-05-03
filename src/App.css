@@ -8,14 +8,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.app.light {
   background: #e23636;
+  color: #111;
+}
+
+.app.dark {
+  background: #050505;
+  color: #f5f5f5;
 }
 
 .todo-box {
   width: 400px;
-  background: white;
   padding: 25px;
   border-radius: 12px;
+}
+
+.app.light .todo-box {
+  background: #ffffff;
+  border: 5px solid #1f75fe;
+}
+
+.app.dark .todo-box {
+  background: #111111;
+  border: 5px solid #6fff57;
 }
 
 h1 {
