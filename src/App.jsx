@@ -3,6 +3,7 @@ import { FilterProvider } from "./context/FilterContext";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import FilterButtons from "./components/FilterButtons";
+import "./App.css";
 
 function App() {
   return (

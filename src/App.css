@@ -40,6 +40,11 @@ button {
   cursor: pointer;
 }
 
+.active-filter {
+  background: #1b1b1b;
+  color: white;
+}
+
 .todo-list {
   border-top: 1px solid #ccc;
   padding-top: 15px;
