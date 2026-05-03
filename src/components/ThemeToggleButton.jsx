@@ -1,5 +1,13 @@
-import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
-export default function ThemeToggleButton() {
-  return <div>ThemeToggleButton component</div>;
+function ThemeToggleButton() {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme}>
+      Switch to {theme === "light" ? "Venom" : "Spider-Man"} Mode
+    </button>
+  );
 }
+
+export default ThemeToggleButton;
